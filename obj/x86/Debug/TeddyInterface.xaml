@@ -1,0 +1,70 @@
+﻿<!--
+//*********************************************************
+//
+// Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
+-->
+<Page
+    x:Class="SpeechAndTTS.TeddyInterface"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SpeechAndTTS"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid x:ConnectionId='1' x:Name="RootGrid" Margin="12,20,12,12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="0,0,0,10">
+                <!--<TextBlock Text="Description:" Style="{StaticResource SampleHeaderTextStyle}"/>-->
+                <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="Wrap">
+                    Talk to Teddy
+                </TextBlock>
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal" Visibility="Collapsed">
+                        <TextBlock Text="Language: " Margin="10,0,0,0" VerticalAlignment="Center"/>
+                        <ComboBox x:ConnectionId='14' x:Name="cbLanguageSelection"                                                         Margin="10" Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:ConnectionId='11' x:Name="btnContinuousRecognize"                                   IsEnabled="False" Margin="0,10,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Microphone"/>
+                                <TextBlock x:ConnectionId='13' x:Name="DictationButtonText" Text=" Talk to Teddy " />                                
+                            </StackPanel>
+                        </Button>
+                        <Button x:ConnectionId='12' x:Name="btnClearText"                             IsEnabled="False" Margin="10,10,0,0" Content="Clear Text" />                        
+                    </StackPanel>
+                    <TextBlock Margin="0,14.5,0,0" Text="Tap the microphone, and start talking to Teddy. He should come back with a witty response!" TextWrapping="Wrap" Style="{StaticResource BodyTextBlockStyle}"/>
+                    <TextBlock Margin="0,14.5,0,0" Text="Message Dictation" TextWrapping="Wrap" />
+                    <TextBox x:ConnectionId='4' x:Name="dictationTextBox" Margin="0,14.5,0,0" IsReadOnly="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="60"                                           />
+                    <TextBlock Margin="0,14.5,0,0" Text="Message Response" TextWrapping="Wrap" />
+                    <TextBox x:ConnectionId='5' x:Name="responseTextBox" Margin="0,14.5,0,0" IsReadOnly="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="60" />
+                    <MediaElement x:ConnectionId='6' x:Name="media" AutoPlay="False"                              />
+                    <TextBlock x:ConnectionId='7' x:Name="debugTextBox" Margin="0,14.5,0,0" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="60" />
+                    <TextBlock x:ConnectionId='8' x:Name="discardedTextBlock" Margin="0,10,0,0" TextWrapping="WrapWholeWords" Visibility="Collapsed" Foreground="Red" />
+                    <TextBlock x:ConnectionId='9' x:Name="hlOpenPrivacySettings" Visibility="Collapsed" TextWrapping="WrapWholeWords">The speech recognition privacy settings have not been accepted. <Hyperlink x:ConnectionId='10'                                  >Open Privacy Settings</Hyperlink> to review the privacy policy and enable personalization.</TextBlock>
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Status Block for providing messages to the user.  Use the
+             NotifyUser() method to populate the message -->
+            <Border x:ConnectionId='2' x:Name="ErrorBorder" Background="Red" Grid.Row="2"/>
+            <TextBlock x:ConnectionId='3' x:Name="StatusBlock" Grid.Row="2" Margin="12, 10, 12, 10" Visibility="Collapsed"/>
+        </Grid>
+    </Grid>
+</Page>
+

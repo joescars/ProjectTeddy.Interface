@@ -1,0 +1,16 @@
+Language=EN-US
+Language=EN-GB
+Language=DE-DE
+Language=ES-ES
+Language=FR-FR
+Language=IT-IT
+Language=ZH-HANS-CN
+Language=EN-IN
+Language=ES-MX
+Language=JA-JP
+Language=KO-KR
+Language=PL-PL
+Language=PT-BR
+Language=RU-RU
+Language=ZH-CN
+Language=ZH-TW
